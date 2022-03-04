@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <script src="jquery-3.6.0.js"></script>
+  </head>
+  <body>
+    <script>
+      var settings = {
+        url: "http://localhost:8081/api/refresh-tokens",
+        method: "POST",
+        // xhrFields: {
+        //   withCredentials: true,
+        // },
+        timeout: 0,
+        headers: {
+          Authorization: "YELLOWFIN ts=1636581116339, nonce=random",
+          "Content-Type": "application/json",
+          Accept: "application/vnd.yellowfin.api-v1+json",
+        },
+        data: JSON.stringify({
+          userName: "",
+          password: "",
+          clientOrgRef: "default_org",
+        }),
+      };
+
+      $.ajax(settings).done(function (response) {
+        console.log(response);
+      });
+    </script>
+  </body>
+</html>
